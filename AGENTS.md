@@ -1,0 +1,46 @@
+# embeddables-starter-minimal
+
+Entry point for agents working in this repo. Minimal Vite + React app wired to
+Embeddables Core and Forms — the base to customize for a new project.
+
+## Commands
+
+```bash
+pnpm install
+pnpm dev              # local app
+pnpm build            # tsc, em build, vite build
+pnpm typecheck        # tsc -b only
+pnpm lint             # ESLint
+pnpm format           # Prettier write
+pnpm format:check     # Prettier check
+pnpm check            # format:check + lint + typecheck
+```
+
+Copy `.env.example` to `.env` and set Embeddables keys. See
+[README.md](./README.md) for `em login` / `em init`.
+
+## Source of truth
+
+| Area                                            | Location                             |
+| ----------------------------------------------- | ------------------------------------ |
+| App shell and routes (React Router)             | `src/App.tsx`                        |
+| Embeddables project config                      | `embeddables/config.yaml`            |
+| Form schemas (authoring)                        | `embeddables/forms/<id>/schema.yaml` |
+| Generated Embeddables output (do not hand-edit) | `embeddables/_dist/`                 |
+
+After schema changes: `pnpm build` and import from `embeddables/_dist`.
+
+## Customizing this starter
+
+This repo ships with one sample form (`Contact`) and no protocol or brand
+styling. To build a real intake flow:
+
+1. Replace `projectId` in `embeddables/config.yaml` (`em init`).
+2. Edit or add forms under `embeddables/forms/<id>/schema.yaml`, then
+   `pnpm build`.
+3. Replace the sample `Home` page in `src/App.tsx` with the real flow — add
+   pages as `<Route>` entries and components as needed. Nothing here assumes
+   a particular number of pages or a brand.
+4. If the flow uses a protocol, run
+   `pnpm exec em protocol install <protocol-id>` and set
+   `enabledModules.protocols: true` in `embeddables/config.yaml`.

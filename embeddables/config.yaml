@@ -1,0 +1,15 @@
+# List every form used by this project in embeddables/forms/<id>/schema.yaml.
+# After edits: pnpm build — import generated types from embeddables/_dist.
+projectId: '00000000-0000-4000-8000-000000000000'
+forms:
+  - id: '00000000-0000-4000-8000-000000000001'
+    name: Contact
+  # - id: "<second-form-uuid>"
+  #   name: Second form
+experiments:
+protocols:
+enabledModules:
+  analytics: false
+  experiments: false
+  forms: true
+  protocols: false

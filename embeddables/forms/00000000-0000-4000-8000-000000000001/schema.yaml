@@ -1,0 +1,15 @@
+id: '00000000-0000-4000-8000-000000000001'
+name: Contact
+fields:
+  - key: name
+    label: Name
+    value_type: text
+    display_text: Name
+    validations:
+      required: true
+  - key: email
+    label: Email
+    value_type: email
+    display_text: Email
+    validations:
+      required: true

@@ -3,6 +3,7 @@ import { useForm, useFormField } from '@embeddables/forms/react'
 import { Route, Routes } from 'react-router'
 
 import { embeddablesConfig, modules, publishableKey } from '@/embeddables.ts'
+import { homePageView, usePageView } from '@/usePageView.ts'
 
 const CONTACT_FORM_ID = '00000000-0000-4000-8000-000000000001'
 
@@ -55,6 +56,7 @@ function ContactForm() {
 function Home() {
   const embeddables = useEmbeddables()
   const appUserId = useAppUserId()
+  usePageView(homePageView)
   const initError =
     embeddables?.isError && embeddables.error instanceof Error
       ? embeddables.error.message

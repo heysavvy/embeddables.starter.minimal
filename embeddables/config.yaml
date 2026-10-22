@@ -1,5 +1,7 @@
 # List every form used by this project in embeddables/forms/<id>/schema.yaml.
 # After edits: pnpm build — import generated types from embeddables/_dist.
+# The all-zero id is a placeholder that keeps the starter building. A project start sets the
+# project's id here; for a project of your own, run `em init`.
 projectId: '00000000-0000-4000-8000-000000000000'
 forms:
   - id: '00000000-0000-4000-8000-000000000001'
@@ -9,7 +11,14 @@ forms:
 experiments:
 protocols:
 enabledModules:
-  analytics: false
+  analytics: true
   experiments: false
   forms: true
   protocols: false
+# Embeddables Hosting builds and deploys these apps on every push. `pnpm build` writes both
+# folders; see "Build output" in AGENTS.md.
+hosting:
+  apps:
+    - slug: app
+      server: dist/app
+      client: dist/client

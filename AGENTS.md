@@ -24,11 +24,25 @@ Copy `.env.example` to `.env` and set Embeddables keys. See
 | Area                                            | Location                             |
 | ----------------------------------------------- | ------------------------------------ |
 | App shell and routes (React Router)             | `src/App.tsx`                        |
+| Worker that serves the build                    | `worker/index.ts`, `wrangler.jsonc`  |
 | Embeddables project config                      | `embeddables/config.yaml`            |
 | Form schemas (authoring)                        | `embeddables/forms/<id>/schema.yaml` |
 | Generated Embeddables output (do not hand-edit) | `embeddables/_dist/`                 |
 
 After schema changes: `pnpm build` and import from `embeddables/_dist`.
+
+## Build output
+
+`pnpm build` runs Vite with `@cloudflare/vite-plugin` and writes two folders:
+
+- `dist/client/` — the static app.
+- `dist/app/` — the Worker (`worker/index.ts`) and its `wrangler.json`.
+
+That is the layout Embeddables Hosting deploys: a hosting app's `server` is
+`dist/app` and its `client` is `dist/client`. Hosting serves a file from
+`dist/client` when one matches; the Worker answers every other path with the
+app shell, so React Router routes work on a refresh. Keep that fallback if you
+change the Worker.
 
 ## Customizing this starter
 

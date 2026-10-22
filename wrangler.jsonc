@@ -1,0 +1,9 @@
+{
+  // `vite build` writes the Worker to dist/app and the static files to dist/client, the paths
+  // `hosting.apps` in embeddables/config.yaml deploys.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "app",
+  "main": "./worker/index.ts",
+  "compatibility_date": "2026-10-07",
+  "assets": { "binding": "ASSETS" },
+}

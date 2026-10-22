@@ -8,7 +8,7 @@ const config = {
   "experiments": [],
   "protocols": [],
   "enabledModules": {
-    "analytics": false,
+    "analytics": true,
     "experiments": false,
     "forms": true,
     "protocols": false

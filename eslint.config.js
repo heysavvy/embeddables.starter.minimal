@@ -5,7 +5,15 @@ import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
   {
-    ignores: ['dist', 'dist-ssr', 'node_modules', 'coverage', '**/*.tsbuildinfo', 'embeddables/**'],
+    ignores: [
+      'dist',
+      'dist-ssr',
+      '.wrangler',
+      'node_modules',
+      'coverage',
+      '**/*.tsbuildinfo',
+      'embeddables/**',
+    ],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,

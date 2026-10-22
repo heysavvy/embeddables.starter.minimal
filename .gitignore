@@ -24,6 +24,9 @@ dist-ssr
 # pnpm
 .pnpm-store
 
+# Wrangler (written by @cloudflare/vite-plugin on build)
+.wrangler/
+
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*

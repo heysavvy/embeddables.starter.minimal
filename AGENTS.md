@@ -44,6 +44,12 @@ That is the layout Embeddables Hosting deploys: a hosting app's `server` is
 app shell, so React Router routes work on a refresh. Keep that fallback if you
 change the Worker.
 
+The publishable key can live in `wrangler.jsonc` under
+`vars.EMBEDDABLES_PUBLISHABLE_KEY`; publishable keys are public. `vite build`
+uses it when `EMBEDDABLES_PUBLISHABLE_KEY` is not set in the environment or a
+`.env` file, so a deployed build gets the key without a CI secret. A project
+start writes the project's sandbox key there.
+
 ## Customizing this starter
 
 This repo ships with one sample form (`Contact`) and no protocol or brand

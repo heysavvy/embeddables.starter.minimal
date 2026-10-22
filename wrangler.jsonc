@@ -6,4 +6,7 @@
   "main": "./worker/index.ts",
   "compatibility_date": "2026-10-07",
   "assets": { "binding": "ASSETS" },
+  // The project's publishable key. It is public by design, so it can live here; `vite build`
+  // reads it into the app when EMBEDDABLES_PUBLISHABLE_KEY is not set in the environment.
+  "vars": { "EMBEDDABLES_PUBLISHABLE_KEY": "" },
 }
